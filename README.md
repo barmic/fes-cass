@@ -7,7 +7,7 @@ FES sur Cassandra
 - montée en charge linéaire
 - continuous availability
 - multi data-center native
-- operation simple
+- operation simple (facilité de déploiement par exemple)
 - Big Data (Spark en particulier)
 
 ## Architecture
@@ -23,7 +23,7 @@ FES sur Cassandra
 - Keyspace/table
 - Queries
 - User Defined Type/Function/Aggregate
-- Compaction
+- Data compaction
 - Partition Key, Clustering Columns
 - Collections
 
