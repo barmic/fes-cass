@@ -38,6 +38,10 @@ de dans et faire des requètes simples.
 
 Quelques explications sur la configuration multi-DC.
 Notament pour la stratégie de réplication.
+Peut être expliquer succintement la réparation des données.
+
+Exercice/démonstration : on fait tomber des instances cassandra et on voit quels
+niveau de consistence continu de fonctionner.
 
 ## Data modeling 2
 
@@ -47,10 +51,10 @@ requètes pour montrer l'intérêt des vues materialisées.
 - Materialized view
 - LightWeight Transaction
 - Batch
-- TTL
+- TTL (→ parler des tombstone et des SSTables)
 - JSON
 
 ## Retour d'experience
 
 Présenter l'experience Tagsys (OS, materiel, noœud unique, passage à du
-relationnel).
+relationnel, maintient du modèle de données).
