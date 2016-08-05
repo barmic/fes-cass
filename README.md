@@ -12,8 +12,11 @@ FES sur Cassandra
 
 ## Architecture
 
+Expliquer que c'est un fonctionnement P2P entre les nœuds cassandra comment
+fonctionne :
+
 - Distribution/partitionnement des données
-- Nœuds virtuels
+- Nœuds virtuels pour gérer la monté et la descente de charge
 - Réplication des données
 - Nœud coordinateur
 - Niveau de consistence
@@ -27,12 +30,19 @@ FES sur Cassandra
 - Partition Key, Clustering Columns
 - Collections
 
+Avoir un exercice (présentation d'un contexte et de quelques requêtes que l'on
+veut pouvoir exécuter) pour créer son premier keyspace/table, insérer des données
+de dans et faire des requètes simples.
+
 ## Multi-DC
 
 Quelques explications sur la configuration multi-DC.
 Notament pour la stratégie de réplication.
 
 ## Data modeling 2
+
+Nouvel exercice où l'on reprend la base précédente, mais on ajoute de nouvelles
+requètes pour montrer l'intérêt des vues materialisées.
 
 - Materialized view
 - LightWeight Transaction
@@ -42,6 +52,5 @@ Notament pour la stratégie de réplication.
 
 ## Retour d'experience
 
-- Windows…
-- Maintiens du model
-- et par rapport à SQL ?
+Présenter l'experience Tagsys (OS, materiel, noœud unique, passage à du
+relationnel).
