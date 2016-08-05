@@ -2,6 +2,8 @@
 
 FES sur Cassandra
 
+// _Je suis peut etre medisant mais pas sur que tout le monde voit ce qu'est une base NoSQL_
+
 ## Points clefs
 
 - montée en charge linéaire
@@ -9,6 +11,7 @@ FES sur Cassandra
 - multi data-center native
 - operation simple (facilité de déploiement par exemple)
 - Big Data (Spark en particulier)
+- // _Pro et cons par rapport au autres solutions NoSQL_
 
 ## Architecture
 
@@ -18,7 +21,7 @@ fonctionne :
 - Distribution/partitionnement des données
 - Nœuds virtuels pour gérer la monté et la descente de charge
 - Réplication des données
-- Nœud coordinateur
+- Nœud coordinateur // _Ou le Quorum => et du coup le split brain, ca peut servir ^^'_ 
 - Niveau de consistence
 
 ## Data modeling
@@ -32,7 +35,7 @@ fonctionne :
 
 Avoir un exercice (présentation d'un contexte et de quelques requêtes que l'on
 veut pouvoir exécuter) pour créer son premier keyspace/table, insérer des données
-de dans et faire des requètes simples.
+dedans et faire des requètes simples. // _En python bien sur :p_
 
 ## Multi-DC
 
@@ -51,10 +54,12 @@ requètes pour montrer l'intérêt des vues materialisées.
 - Materialized view
 - LightWeight Transaction
 - Batch
-- TTL (→ parler des tombstone et des SSTables)
+- TTL (→ parler des tombstone et des SSTables) // _Notamment les cas au limites si on crèe trop de tombstones et que du coup cassandra refuse de repondre ..._
 - JSON
 
 ## Retour d'experience
 
 Présenter l'experience Tagsys (OS, materiel, noœud unique, passage à du
 relationnel, maintient du modèle de données).
+// _Monitoring en utilisant https://jolokia.org/_
+// _Présentation de quelques futures fonctionnalitées cool comme l'ajout de Lucene :)_
