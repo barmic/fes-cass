@@ -21,143 +21,62 @@
 		<!-- Wrap all slides in a single "slides" class -->
 		<div class="slides">
 
-      <!-- Présentation -->
+			<!-- Titre -->
 			<section>
-				<h1>Cassandra</h1>
-				<p>Une grosse base de données</p>
+						<h1>Cassandra</h1>
+						<p>Une grosse base de données</p>
 			</section>
 
-			<section id="show-a-link">
-				<h1>Contexte</h1>
-				<p>Initié par Facebook</p>
-				<p>Massivement utilisé par Apple</a><p>
-			</section>
-
-			<section id="show-a-link">
-				<h1>Description</h1>
-				<p>Base de données NoSQL</p>
-        <ul>
-          <li>dénormalisation des données</li>
-          <li>pas de transaction (enfin un peu quand même…)</li>
-          <li>grosse capacité de scaling</li>
-        </ul>
-        <p>Développée en Java principalement pour Linux</p>
-			</section>
-
-      <!-- Modélisation -->
-			<section id="show-a-link">
-        <section>
-				  <h1>Modélisation</h1>
-        </section>
-        <section>
-				  <h2>Tables/Colonne</h2>
-          <p>Comme en SQL sans liens<p>
-          <p>Possibilité d'utiliser des types complexes</p>
-        </section>
-        <section>
-				  <h2>Clefs</h2>
-          <p>Clef de partitionnement</p>
-          <p>Clef de machin truc</p>
-          <p>Index</p><!-- définition parcimonie -->
-        </section>
-			</section>
-
-      <!-- Cas pratique -->
+			<!-- Partie 1 : Présentation -->
 			<section>
-	      <section>
-	        <h1>Modélisation des données</h1>
-	        <p>On souhaite créer un forum, c'est à dire une liste de messages regroupés par fil de discussions, regroupés par catégorie.</p>
-	      </section>
-	      <section>
-					<p>Liste des champs :</p>
-					<ul>
-						<li>id du message</li>
-						<li>autheur</li>
-						<li>contenu</li>
-						<li>date</li>
-						<li>contenu</li>
-						<li>catégorie</li>
-						<li>sujet</li>
-						<li>pièces jointes</li>
-					</ul>
-	      </section>
-	      <section>
-					<p>Une solution</p>
-					<pre><code>
-CREATE TABLE forum.messages (
-  cat text,
-  subject text,
-  id uuid,
-  date long,
-  author text,
-  content text,
-  pièce_jointe blob,
-
-  PRIMARY KEY ((cat), subject, id, date)
-);
-					</code></pre>
-	      </section>
+				<h1>Une base de données NoSQL orienté large raw</h1>
+				<p>kesako ?</p>
 			</section>
 
-      <!-- Requètes -->
-      <section>
-        <h2>Requètes</h2>
-				<!-- exemple de requète -->
-				<p>Récupérer tous les messages d'un fil :</p>
-				<pre><code class="sql">
-SELECT * from forum.messages WHERE cat = 'cat1' and subject = 'sub1';
-				</code></pre>
-				<p>Poster un nouveau message</p>
-				<pre><code>
-INSERT INFOR forum.messages (cat, subject, id, date, author, content)
-VALUES (
-	'cat1',
-	'sub1',
-	cfd66ccc-d857-4e90-b1e5-df98a3d40cd6,
-	,
-	'barmic',
-	'Voici mon message'
-);
-				</code></pre>
-				<p>Avoir la liste des sujets d'une catégorie</p>
-				<pre><code>
-SELECT * from forum.messages WHERE cat = 'cat1';
-				</code></pre>
-      </section>
+			<section>
+				<h2>NoSQL</h1>
+				<!--
+					- Les limites de SQL (montée en charge lié aux grosses garanties offertes)
+					- La nomenclature NoSQL (document, clef-valeur, graphe, colonne, autres)
+				-->
+			</section>
 
-      <!-- Évolution du cas… -->
-      <section>
-				<section>
-	        <h2>Plus compliqué</h2>
-					<p>Comment obtenir tous les posts d'un utilisateur donné ?</p>
-					<pre class="fragment fade-up visible" data-fragment-index="1"><code>SELECT * FROM forum.messages WHERE author = 'foo';</code></pre>
-					<p class="fragment fade-up visible current-visible" data-fragment-index="2">Impossible !</p>
-				</section>
-					<section>
-						<p>Création d'une vue matérialisée</p>
-						<pre class="fragment fade-in visible" data-fragment-index="1"><code>
-CREATE MATERIALIZED VIEW forum.byAuthor AS
-SELECT user FROM forum.messages
-WHERE author  IS NOT NULL
-  AND cat     IS NOT NULL
-  AND subject IS NOT NULL
-  AND id      IS NOT NULL
-  AND date    IS NOT NULL
-PRIMARY KEY (author)
-WITH CLUSTERING ORDER BY (score date);
-						</code></pre>
-						<p>Requête</p>
-						<pre class="fragment fade-in visible" data-fragment-index="2"><code>
-SELECT * from forum.byAuthor WHERE author = 'foo';
-						</code></pre>
-					</section>
-      </section>
+			<section>
+				<h2>Cassandra : orienté longue ligne</h2>
+				<!--
+					- un modèle paire à paire pour des données structurées ou semi-structurées
+					- avantage : montée en charge linéaire, gestion du multi-dc, résistance aux pannes
+					- inconvénient : difficulté de modélisation, requêtage un peu trop simple
+				-->
+			</section>
 
-      <!-- Un petit peu de code -->
-      <section>
-        <h2>Un peu de code…</h2>
-        <p>Cas pratique</p>
-      </section>
+			<section>
+				<h2>Cas d'utilisation</h2>
+				<!--
+					 - énorme volume de données, multi-dc, résistance aux pannes
+					 - quand on monte de grosses architectures type Big Data (comme l'architecture lambda)
+					 - quand le modèle de données conincide bien
+					 - pas quand on est dans un mode « je requête n'importe quoi, n'importe comment » (ou alors pas tout seul)
+					 - pas quand on veut être léger (Cassandra consomme 4 Gio minimum)
+				 -->
+			 </section>
+
+			<section>
+				<h1>Data modeling</h1>
+			</section>
+
+			<section>
+				<h1>Multi-DC</h1>
+			</section>
+
+			<section>
+				<h1>Data modeling 2</h1>
+			</section>
+
+			<section>
+				<h1>Retour d'experience</h1>
+			</section>
+
 
 			</div>
 	</div>
