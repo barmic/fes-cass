@@ -1,0 +1,135 @@
+\documentclass{beamer}
+
+\usepackage[frenchb]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{xifthen}
+
+\usetheme{Warsaw}
+
+\title{Cassandra}
+\author{Michel Barret}
+\institute{Viseo}
+
+\newenvironment{slideTitle}[2]
+{
+  \ifthenelse{\isempty{#1}}{}{\section{#1}}
+  \ifthenelse{\isempty{#2}}{}{\subsection{#2}}
+  \begin{frame}
+    \ifthenelse{\isempty{#1}}{
+      \ifthenelse{\isempty{#2}}{}{\frametitle{#2}}
+    }{
+      \frametitle{#1}
+    }
+}
+{ \end{frame} }
+%\newcommand\slideSection[1]{#1~\textsc{#2}}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \tableofcontents
+\end{frame}
+
+\begin{slideTitle}{Introduction}{Contexte}
+\begin{itemize}
+\item initié par Facebook
+\item développé par Datastax et Apache
+\item utilisé entre autre par Apple
+\end{itemize}
+\end{slideTitle}
+
+\begin{slideTitle}{}{Le NoSQL}
+\begin{itemize}
+\item pas de relations
+\item pas de transaction
+\item pas de trigger
+\item pas de contraintes d'intégrité
+\item pas de forme normale
+\item du P2P
+\item de larges colonnes
+\end{itemize}
+\end{slideTitle}
+
+\begin{slideTitle}{Concepts}{Modélisation}
+\begin{itemize}
+\item keyspace~: c'est la base de données au sens MySQL/MariaDB
+\item table~: comme vous connaissez déjà
+\item clefs~: primaire, composite, de clustering, de partitionnement,\dots (oui)~:
+% faire un joli dessin ^_^
+\item index~:
+\end{itemize}
+\end{slideTitle}
+
+\begin{slideTitle}{}{Les clefs}
+\begin{itemize}
+\item clefs~: primaire, composite, de clustering, de partitionnement,\dots (oui)~:
+% faire un joli dessin ^_^
+% voir s'il y a besoin de décrire l'architecture de cassandra si c'est le cas
+% il faut simplifier et revenir là dessus plus tard (voir avec d'autres (Thomas & Pick))
+\item index~:
+\end{itemize}
+\end{slideTitle}
+
+\begin{slideTitle}{}{Types}
+\begin{itemize}
+\item entier, text, etc
+% pas d'UDT
+\item *Exercice* : Première modélisation
+\end{itemize}
+\end{slideTitle}
+
+\begin{slideTitle}{}{Requêtage}
+\begin{itemize}
+% ceci n'est pas du SQL
+\item présentation
+\item *Exercice* : Créer sa/ses tables, les charger, puis les requêter
+\end{itemize}
+\end{slideTitle}
+
+\begin{slideTitle}{}{Fonctionnalités avancées}
+\begin{itemize}
+\item User Data Type et collection
+*Exercice* : ajouter un nouveau type
+\item vues matérialisées : prendre en compte de nouveaux besoins
+*Exercice* : mettre en place une vue materialisée
+\item utilisation d'un index
+\end{itemize}
+\end{slideTitle}
+
+\begin{slideTitle}{Développement}{Driver standard}
+\begin{itemize}
+\item requetage
+  \begin{itemize}
+    \item QueryFactory
+    \item requêtes nommées (par anotation)
+  \end{itemize}
+\item gestion du point d'accès
+\end{itemize}
+\end{slideTitle}
+
+\begin{slideTitle}{Cluster}{Modélisation}
+\begin{itemize}
+\item clef de clustering
+\item transaction légère => mise en évidence
+\item topologie réseau
+\end{itemize}
+\end{slideTitle}
+
+\begin{slideTitle}{}{Requêtage}
+\begin{itemize}
+\item ONE/QUORUM/ALL
+\end{itemize}
+\end{slideTitle}
+
+\begin{slideTitle}{}{Exploitation ?}
+\begin{itemize}
+\item pas elastique :(
+\end{itemize}
+\end{slideTitle}
+
+\end{document}
