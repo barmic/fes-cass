@@ -30,11 +30,28 @@
 			<!-- Partie 1 : Présentation -->
 			<section>
 				<h1>Une base de données NoSQL orienté large raw</h1>
-				<p>kesako ?</p>
+				<p>what ?!</p>
 			</section>
 
 			<section>
 				<h2>NoSQL</h1>
+					<section>
+						<div id="right">
+							<img data-src="img/conteneur.jpg" />
+						</div>
+
+						<ul style="color: black">
+							<li class="fragment">propriétés ACID (Atomicité, Cohérence, Isolation et Durabilité) donne de fortes garanties sur les données au détriment de la monté en charge</li>
+							<li class="fragment">modélisation des données complexes : lorsque l'on travail avec des données partiellement structurées</li>
+						</ul>
+					</section>
+					<section>
+						<h3>NoSQL</h3>
+						<ul>
+							<li>organisation et requêtage différent des données</li>
+							<li>moins de garanties fournies par la base (au revoir les contraintes d'intégrité)</li>
+						</ul>
+					</section>
 				<!--
 					- Les limites de SQL (montée en charge lié aux grosses garanties offertes)
 					- La nomenclature NoSQL (document, clef-valeur, graphe, colonne, autres)
@@ -77,6 +94,25 @@
 				<h1>Retour d'experience</h1>
 			</section>
 
+			<!-- Partie 2 : Fonctionnement de Cassandra -->
+			<!--
+			Expliquer que c'est un fonctionnement P2P entre les nœuds cassandra comment
+			fonctionne :
+
+			- Distribution/partitionnement des données
+			- Nœuds virtuels pour gérer la monté et la descente de charge
+			- Réplication des données
+			- Nœud coordinateur // _Ou le Quorum => et du coup le split brain, ca peut servir ^^'_
+			- Niveau de consistence
+		-->
+			<section>
+				<h1>Functionnement interne de Cassandra</h1>
+				<p>un peu de théorique… :(</p>
+			</section>
+
+			<section>
+				<h2>Partitionnement des données (ou sharding)</h1>
+			</section>
 
 			</div>
 	</div>
